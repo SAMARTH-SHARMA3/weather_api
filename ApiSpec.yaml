@@ -9,8 +9,8 @@ servers:
 paths:
   /weather/{city}:
     get:
-      summary: Get weather data for a city
-      description: Fetches weather data for the specified city.
+      summary: Get weather data for a city and get temperature for three consicuitive days for london
+      description: Fetches weather data for the specified city and three consicuitive days temperature.
       parameters:
         - in: path
           name: city
@@ -23,7 +23,7 @@ paths:
           description: Successful response
           content:
             application/json:
-              schema:
+              schema1:
                 type: object
                 properties:
                   temperature:
@@ -43,3 +43,22 @@ paths:
           description: City not found
         '500':
           description: Server error
+              Schema1:
+                type: object
+                prperties:
+                temperature:
+                  type: number
+                  description: this the temperature for day one
+                trmperature:
+                  type: number
+                  description: this the temperature for day two
+                trmperature:
+                  type: number
+                  description: this the temperature for day three
+
+          '404':
+          description: City not found
+          '500':
+          description: Server error
+
+
