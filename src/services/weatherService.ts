@@ -13,6 +13,19 @@ export const generateLondonWeatherData = (): WeatherData => {
   return generatedWeatherData;
 };
 
+export const IndiaWeatherData = (): WeatherData => {
+  // Generate random weather data
+  const generatedWeatherData = {
+    temperature: faker.number.int({ min: 12, max: 49 }),
+    humidity: faker.number.int({ min: 20, max: 120 }),
+    wind: faker.number.int({ min: 1, max: 10 }),
+    rain: faker.number.int({ min: 20, max: 100 }),
+  };
+
+  // Return weather data
+  return generatedWeatherData;
+};
+
 export const generateDublinWeatherData = (): WeatherData => {
   // Generate random weather data
   const generatedWeatherData: WeatherData = {
@@ -24,4 +37,14 @@ export const generateDublinWeatherData = (): WeatherData => {
 
   // Return weather data
   return generatedWeatherData;
+};
+
+export const generatelondontemperature =(): threedaytemp =>{
+  const generatetemperature: threedaytemp={
+    dayone: faker.number.int({min: -15, max:30}),
+    daytwo: faker.number.int({min: -12, max:22}),
+    daythree: faker.number.int({min: 4, max:40}),
+  };
+
+  return generatetemperature;
 };

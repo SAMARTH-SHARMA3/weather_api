@@ -2,6 +2,8 @@ import { Request, Response } from "express";
 import {
   generateDublinWeatherData,
   generateLondonWeatherData,
+  IndiaWeatherData,
+  generatelondontemperature
 } from "../services/weatherService.js";
 
 /**
@@ -25,6 +27,9 @@ export const getWeatherData = async (req: Request, res: Response) => {
       finalWeatherData = generateLondonWeatherData();
     } else if (city === "dublin") {
       finalWeatherData = generateDublinWeatherData();
+    }
+    else if (city === "India") {
+      finalWeatherData = IndiaWeatherData();
     } else {
       // If the city is not london or dublin, we will throw an error
       res.status(404).send("City not found");
@@ -36,4 +41,27 @@ export const getWeatherData = async (req: Request, res: Response) => {
     // If there is an error, we will log it and send a 500 status code
     res.status(500).send("Error in fetching weather data");
   }
+};
+
+export const gettemperature = async (req: Request, res: Response) =>{
+  try{
+    const { city } = req.params;
+    console.log(city);
+
+    let finaltemperatureData: threedaytemp;
+
+    
+    if (city === "london") {
+      console.log(generatelondontemperature());
+      finaltemperatureData = generatelondontemperature(); 
+  }else {
+    // If the city is not london or dublin, we will throw an error
+    res.status(404).send("City not found");
+  }
+  res.status(200).json(finaltemperatureData);}
+  catch (error) {
+    // If there is an error, we will log it and send a 500 status code
+    res.status(500).send("Error in fetching temperature data");
+  }
+  
 };
