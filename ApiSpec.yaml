@@ -59,6 +59,9 @@ paths:
           '404':
           description: City not found
           '500':
-          description: Server error
+          description: Server erroer
+
+
+          
 
 
