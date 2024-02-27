@@ -9,7 +9,7 @@ apiEndpoints:
     paths: '/ip'
   WeatherData:
     host: localhost
-    path: "/weather/*"
+    path: "/"
   TemperatureData:
     host: localhost
     path: "/temperature/*"  
@@ -17,9 +17,9 @@ serviceEndpoints:
   httpbin:
     url: 'https://httpbin.org'
   Weather:
-    url: "https://friendly-cod-jjj4v4wwwqwc5pwv-3000.app.github.dev"
+    url: "https://friendly-cod-jjj4v4wwwqwc5pwv-3000.app.github.dev/api"
   Temperature:
-    url: "https://friendly-cod-jjj4v4wwwqwc5pwv-3000.app.github.dev"
+    url: "https://friendly-cod-jjj4v4wwwqwc5pwv-3000.app.github.dev/api"
   
 policies:
   - basic-auth
