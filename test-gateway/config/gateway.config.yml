@@ -3,24 +3,20 @@ http:
 admin:
   port: 9876
   host: localhost
+log:
+  level: debug
 apiEndpoints:
   api:
     host: localhost
-    paths: '/ip'
+    paths: "/ip"
   WeatherData:
-    host: localhost
-    path: "/"
-  TemperatureData:
-    host: localhost
-    path: "/temperature/*"  
+    host: "localhost"
+    paths: "/weather/*"
 serviceEndpoints:
   httpbin:
-    url: 'https://httpbin.org'
+    url: "https://httpbin.org"
   Weather:
     url: "https://friendly-cod-jjj4v4wwwqwc5pwv-3000.app.github.dev/api"
-  Temperature:
-    url: "https://friendly-cod-jjj4v4wwwqwc5pwv-3000.app.github.dev/api"
-  
 policies:
   - basic-auth
   - cors
@@ -35,31 +31,20 @@ pipelines:
     apiEndpoints:
       - api
     policies:
-    # Uncomment `key-auth:` when instructed to in the Getting Started guide.
-    # - key-auth:
+      # Uncomment `key-auth:` when instructed to in the Getting Started guide.
+      # - key-auth:
       - proxy:
           - action:
-              serviceEndpoint: httpbin 
+              serviceEndpoint: httpbin
               changeOrigin: true
   Weather:
     apiEndpoints:
-      - WeatherData
+      - seismicData
     policies:
       - log:
-        action:
-          message: "${req.method} ${req.originalUrl}"
+          action:
+            message: "${req.method} ${req.originalUrl}"
       - proxy:
-        - action:
-          serviceEndpoint: Weather
-          changeOrigin: true
-  Temperature:
-    apiEndpoints:
-      - TemperatureData
-    policies:
-      - log:
-        action:
-          message: "${req.method} ${req.originalUrl}"
-      - proxy:
-        - action:
-          serviceEndpoint: Temperature
-          changeOrigin: true
+          - action:
+              serviceEndpoint: Weather
+              changeOrigin: true
