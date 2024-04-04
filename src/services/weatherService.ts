@@ -3,6 +3,7 @@ import { faker } from "@faker-js/faker";
 export const generateLondonWeatherData = (): WeatherData => {
   // Generate random weather data
   const generatedWeatherData = {
+    city: "London",
     temperature: faker.number.int({ min: -15, max: 30 }),
     humidity: faker.number.int({ min: 79, max: 86 }),
     wind: faker.number.int({ min: 2, max: 78 }),
@@ -16,6 +17,7 @@ export const generateLondonWeatherData = (): WeatherData => {
 export const IndiaWeatherData = (): WeatherData => {
   // Generate random weather data
   const generatedWeatherData = {
+    city: "India",
     temperature: faker.number.int({ min: 12, max: 49 }),
     humidity: faker.number.int({ min: 20, max: 120 }),
     wind: faker.number.int({ min: 1, max: 10 }),
@@ -29,6 +31,7 @@ export const IndiaWeatherData = (): WeatherData => {
 export const generateDublinWeatherData = (): WeatherData => {
   // Generate random weather data
   const generatedWeatherData: WeatherData = {
+    city: "Dublin",
     temperature: faker.number.int({ min: -15, max: 30 }),
     humidity: faker.number.int({ min: 79, max: 86 }),
     wind: faker.number.int({ min: 2, max: 78 }),
