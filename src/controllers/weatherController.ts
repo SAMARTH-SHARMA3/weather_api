@@ -3,7 +3,9 @@ import {
   generateDublinWeatherData,
   generateLondonWeatherData,
   IndiaWeatherData,
-  generatelondontemperature
+  generatelondontemperature,
+  generateDublintemperature,
+  generateIndiatemperature
 } from "../services/weatherService.js";
 
 /**
@@ -54,8 +56,14 @@ export const gettemperature = async (req: Request, res: Response) =>{
     if (city === "london") {
       console.log(generatelondontemperature());
       finaltemperatureData = generatelondontemperature(); 
+    }else if (city === "dublin") {
+    console.log(generateDublintemperature());
+    finaltemperatureData = generateDublintemperature(); 
+    }else if (city === "India") {
+    console.log(generateIndiatemperature());
+    finaltemperatureData = generateIndiatemperature(); 
   }else {
-    // If the city is not london or dublin, we will throw an error
+    // If the city is not london or dublinor India, we will throw an error
     res.status(404).send("City not found");
   }
   res.status(200).json(finaltemperatureData);}

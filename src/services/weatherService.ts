@@ -44,6 +44,29 @@ export const generateDublinWeatherData = (): WeatherData => {
 
 export const generatelondontemperature =(): threedaytemp =>{
   const generatetemperature: threedaytemp={
+    city: "London",
+    dayone: faker.number.int({min: -15, max:30}),
+    daytwo: faker.number.int({min: -12, max:22}),
+    daythree: faker.number.int({min: 4, max:40}),
+  };
+
+  return generatetemperature;
+};
+
+export const generateDublintemperature =(): threedaytemp =>{
+  const generatetemperature: threedaytemp={
+    city: "dublin",
+    dayone: faker.number.int({min: -15, max:30}),
+    daytwo: faker.number.int({min: -12, max:22}),
+    daythree: faker.number.int({min: 4, max:40}),
+  };
+
+  return generatetemperature;
+};
+
+export const generateIndiatemperature =(): threedaytemp =>{
+  const generatetemperature: threedaytemp={
+    city: "India",
     dayone: faker.number.int({min: -15, max:30}),
     daytwo: faker.number.int({min: -12, max:22}),
     daythree: faker.number.int({min: 4, max:40}),

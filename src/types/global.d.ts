@@ -7,6 +7,7 @@ interface WeatherData {
 }
 
 interface threedaytemp {  
+  city: string;
   dayone: number;
   daytwo: number;
   daythree: number;
